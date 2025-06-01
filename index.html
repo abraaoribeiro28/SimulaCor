@@ -1,0 +1,79 @@
+<
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimulaCor - Acessibilidade de Cores</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+<body>
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                Simulador de Acessibilidade de Cores
+            </h1>
+            <p class="text-gray-600">
+                Visualize como suas cores são percebidas por pessoas com
+                diferentes tipos de daltonismo e verifique a conformidade WCAG
+            </p>
+        </header>
+
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">
+                Sobre Deficiências Visuais de Cores
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium text-gray-800 mb-2">
+                        Tipos de Daltonismo
+                    </h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
+                        <li>
+                            <strong>Protanopia:</strong> 
+                            Dificuldade em perceber o vermelho, que pode parecer
+                            mais escuroou marrom-esverdeado. Tons de vermelho e
+                            verde podem ser facilmente confundidos.
+                        </li>
+                        <li>
+                            <strong>Deuteranopia:</strong> 
+                            Dificuldade em distinguir entre verdes, vermelhos
+                            e marrons. Os verdes podem parecer mais acinzentados
+                            ou amarelados.
+                        </li>
+                        <li>
+                            <strong>Tritanopia:</strong> 
+                            Dificuldade em distinguir entre azul e verde, e entre
+                            amarelo e rosa. Azuis podem parecer mais esverdeados,
+                            e amarelos podem parecer claramente rosados ou cinzentos.
+                        </li>
+                        <li>
+                            <strong>Acromatopsia:</strong>
+                            Ausência total de percepção de cores (visão em escala de cinza).
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-medium text-gray-800 mb-2">
+                        Diretrizes WCAG
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                        As Diretrizes de Acessibilidade para Conteúdo Web (WCAG)
+                        estabelecem padrões para contraste de cores:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
+                        <li>
+                            <strong>Nível AA:</strong>
+                            Requer uma taxa de contraste de pelo menos 4.5:1 para
+                            texto normal e 3:1 para texto grande.
+                        </li>
+                        <li>
+                            <strong>Nível AAA:</strong>
+                            Requer uma taxa de contraste de pelo menos 7:1 para
+                            texto normal e 4.5:1 para texto grande.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
