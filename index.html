@@ -119,6 +119,43 @@
                     </div>
                 </div>
             </div>
+            <div class="border-t border-gray-200 pt-6">
+          <div class="flex mb-4 overflow-x-auto">
+            <button class="tab-button active" data-tab="normal">Visão Normal</button>
+            <button class="tab-button" data-tab="protanopia">Protanopia</button>
+            <button class="tab-button" data-tab="deuteranopia">Deuteranopia</button>
+            <button class="tab-button" data-tab="tritanopia">Tritanopia</button>
+            <button class="tab-button" data-tab="achromatopsia">Acromatopsia</button>
+          </div>
+
+          <div class="tab-content bg-white p-4 rounded-b-lg border-t-0 border border-gray-200">
+            <div id="colorDisplay" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="color-sample">
+                <div class="color-box mb-2" style="background-color: #3366cc;"></div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">#3366cc</span>
+                  <span class="wcag-badge wcag-warning">AA</span>
+                </div>
+              </div>
+
+              <div class="color-sample">
+                <div class="color-box mb-2" style="background-color: #ff9900;"></div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">#ff9900</span>
+                  <span class="wcag-badge wcag-fail">Falha</span>
+                </div>
+              </div>
+
+              <div class="color-sample">
+                <div class="color-box mb-2" style="background-color: #66cc33;"></div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">#66cc33</span>
+                  <span class="wcag-badge wcag-fail">Falha</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
 
         <div class="bg-white rounded-lg shadow-lg p-6">
