@@ -176,4 +176,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     updateContrastPanel();
+
+    function renderColorDisplay() {
+        const activeTab = document.querySelector('.tab-button.active').dataset.tab;
+        const wcagLevel = document.querySelector('input[name="wcagLevel"]:checked').value;
+
+        const html = colorInputs.map((input) => {
+            const originalColor = input.value;
+            const simulatedColor = activeTab === 'normal'
+                ? originalColor
+                : simulateColorBlindness(originalColor, activeTab);
+
+            const contrast = calculateContrast(simulatedColor, '#FFFFFF');
+            const compliance = checkWcagCompliance(contrast, wcagLevel);
+
+            const badgeClass = compliance === 'pass' ? 'wcag-pass'
+                : compliance === 'warning' ? 'wcag-warning'
+                    : 'wcag-fail';
+
+            const badgeText = compliance === 'fail' ? 'Falha' : wcagLevel;
+
+            return `
+              <div class="color-sample">
+                <div class="color-box mb-2" style="background-color: ${simulatedColor};"></div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">${originalColor}</span>
+                  <span class="wcag-badge ${badgeClass}">${badgeText}</span>
+                </div>
+              </div>
+            `;
+        }).join('');
+
+        colorDisplay.innerHTML = html;
+    }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            renderColorDisplay();
+        });
+    });
+
+    colorInputs.forEach(input => input.addEventListener('input', renderColorDisplay));
+    document.querySelectorAll('input[name="wcagLevel"]').forEach(radio => {
+        radio.addEventListener('change', renderColorDisplay);
+    });
+
+    renderColorDisplay();
+
 });
