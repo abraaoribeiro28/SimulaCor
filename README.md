@@ -2,6 +2,8 @@
 
 Visualize como cores são percebidas por pessoas com diferentes tipos de daltonismo e verifique se atendem aos requisitos de acessibilidade do WCAG.
 
+[www.simulacor.com](https://www.simulacor.com)
+
 ---
 
 ## 🧩 Funcionalidades
@@ -21,7 +23,9 @@ Visualize como cores são percebidas por pessoas com diferentes tipos de daltoni
 
 ## 🚀 Tecnologias Utilizadas
 
-- HTML5 + CSS3 + Tailwindcss
+- HTML5
+- CSS3
+- Tailwindcss
 - JavaScript
 
 ---
@@ -36,4 +40,14 @@ Ajudar designers, desenvolvedores e equipes de UX a criarem interfaces mais incl
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/abraaoribeiro28/SimulaCor.git
+   git clone https://github.com/abraaoribeiro28/simulacor.git
+2. Acesse a pasta do projeto:
+   ```bash
+   cd simulacor
+4. Instale as dependências:
+   ```bash
+   npm install
+5. Compile o css
+   ```bash
+   npm run build
+  
