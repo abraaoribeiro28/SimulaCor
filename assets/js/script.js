@@ -286,4 +286,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     suggestBtn.addEventListener('click', suggestAlternativeColors);
 
+    function resetToDefaultColors() {
+        defaultColors.forEach((color, index) => {
+            colorInputs[index].value = color;
+            colorTextInputs[index].value = color;
+        });
+
+        renderColorDisplay();
+        updateContrastPanel();
+        suggestions.innerHTML = '<p class="text-sm text-gray-600">Clique em "Sugerir Alternativas" para receber recomendações de cores mais acessíveis.</p>';
+    }
+
+    resetBtn.addEventListener('click', resetToDefaultColors);
 });
