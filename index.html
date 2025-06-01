@@ -5,26 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Simulador de Acessibilidade de Cores. Descubra como suas cores são percebidas por pessoas com diferentes tipos de daltonismo.">
     <meta name="keywords" content="acessibilidade, daltonismo, simulador de cores, contraste, design inclusivo, acessibilidade digital, web acessível">
-    <link rel="icon" href="assets/favicon.ico">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <title>SimulaCor - Acessibilidade de Cores</title>
     <link rel="preload" href="assets/fonts/Inter-VariableFont.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-VariableFont.woff2') format('woff2');
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #1f2937;
+            font-weight: 700;
+            font-size: 1.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #4b5563;
+        }
+
+        .fixed-height-desktop {
+            min-height: 240px;
+        }
+
+        @media (min-width: 768px) {
+            .tab-content {
+                min-height: 140px !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .fixed-height-desktop,
+            .tab-content {
+                min-height: unset !important;
+            }
+        }
+    </style>
+
     <link rel="stylesheet" href="assets/css/style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/style.css">
+    </noscript>
+</head>
+
 <body>
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         <header class="mb-8 text-center">
-            <h1 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
-                Simulador de Acessibilidade de Cores
-            </h1>
-            <p class="text-gray-600">
-                Visualize como suas cores são percebidas por pessoas com
-                diferentes tipos de daltonismo e verifique a conformidade WCAG
-            </p>
+            <h1 class="text-2xl sm:text-3xl font-semibold mb-2">Simulador de Acessibilidade de Cores</h1>
+            <p>Visualize como suas cores são percebidas por pessoas com diferentes tipos de daltonismo e verifique a conformidade WCAG</p>
         </header>
 
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 fixed-height-desktop">
             <div class="flex flex-col md:flex-row gap-6 mb-6">
-                <div class="w-full md:w-1/2">
+                <div class="w-full md:w-1/2 fixed-height-desktop">
                     <h2 class="text-xl font-semibold mb-4">Cores para Testar</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                         <div>
@@ -34,7 +78,7 @@
                                     class="h-10 w-10 rounded-l-md border border-r-0 border-gray-300">
                                 <label for="color1Text" class="sr-only">Cor 1</label>
                                 <input type="text" id="color1Text" value="#2E55A3" class="color-input rounded-l-none"
-                                oninput="updateColorFromText(this, 'color1')">
+                                    oninput="updateColorFromText(this, 'color1')">
                             </div>
                         </div>
                         <div>
@@ -60,8 +104,9 @@
                     </div>
 
                     <div class="flex flex-wrap gap-3 mb-6">
-                        <button id="resetBtn" class="btn btn-primary">Redefinir</button>
-                        <button id="suggestBtn" class="btn btn-secondary">Sugerir Alternativas</button>
+                        <button id="resetBtn" class="btn btn-primary h-10 min-w-[120px]">Redefinir</button>
+                        <button id="suggestBtn" class="btn btn-secondary h-10 min-w-[160px]">Sugerir
+                            Alternativas</button>
                     </div>
 
                     <div class="mb-4">
@@ -78,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full md:w-1/2">
+                <div class="w-full md:w-1/2 fixed-height-desktop">
                     <h2 class="text-xl font-semibold mb-4">Informações de Acessibilidade</h2>
                     <div id="accessibilityInfo" class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                         <div class="mb-4">
@@ -94,7 +139,6 @@
                                         <span class="font-medium">Aprovado</span>
                                     </div>
                                 </div>
-                
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                         <div class="w-4 h-4 rounded-full mr-2" style="background-color: #ff9900;"></div>
@@ -105,7 +149,6 @@
                                         <span class="text-red-700 font-medium">Falha</span>
                                     </div>
                                 </div>
-                
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                         <div class="w-4 h-4 rounded-full mr-2" style="background-color: #66cc33;"></div>
@@ -118,108 +161,78 @@
                                 </div>
                             </div>
                         </div>
-                
                         <div>
                             <h3 class="font-medium text-gray-800 mb-2">Sugestões</h3>
                             <div id="suggestions" class="text-sm text-gray-600">
-                                <p>Clique em "Sugerir Alternativas" para receber recomendações de cores mais acessíveis.</p>
+                                <p>Clique em "Sugerir Alternativas" para receber recomendações de cores mais acessíveis.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-200 pt-6">
-          <div class="flex mb-4 overflow-x-auto">
-            <button class="tab-button active" data-tab="normal">Visão Normal</button>
-            <button class="tab-button" data-tab="protanopia">Protanopia</button>
-            <button class="tab-button" data-tab="deuteranopia">Deuteranopia</button>
-            <button class="tab-button" data-tab="tritanopia">Tritanopia</button>
-            <button class="tab-button" data-tab="achromatopsia">Acromatopsia</button>
-          </div>
-
-          <div class="tab-content bg-white p-4 rounded-b-lg border-t-0 border border-gray-200">
-            <div id="colorDisplay" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="color-sample">
-                <div class="color-box mb-2" style="background-color: #2E55A3;"></div>
-                <div class="flex justify-between items-center">
-                  <span class="text-sm font-medium">#2E55A3</span>
-                  <span class="wcag-badge wcag-warning">AA</span>
+                <div class="flex mb-4 overflow-x-auto">
+                    <button class="tab-button active" data-tab="normal">Visão Normal</button>
+                    <button class="tab-button" data-tab="protanopia">Protanopia</button>
+                    <button class="tab-button" data-tab="deuteranopia">Deuteranopia</button>
+                    <button class="tab-button" data-tab="tritanopia">Tritanopia</button>
+                    <button class="tab-button" data-tab="achromatopsia">Acromatopsia</button>
                 </div>
-              </div>
-
-              <div class="color-sample">
-                <div class="color-box mb-2" style="background-color: #ff9900;"></div>
-                <div class="flex justify-between items-center">
-                  <span class="text-sm font-medium">#ff9900</span>
-                  <span class="wcag-badge wcag-fail">Falha</span>
+                <div class="tab-content bg-white p-4 rounded-b-lg border-t-0 border border-gray-200">
+                    <div id="colorDisplay" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="color-sample">
+                            <div class="color-box mb-2" style="background-color: #2E55A3;"></div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">#2E55A3</span>
+                                <span class="wcag-badge wcag-warning">AA</span>
+                            </div>
+                        </div>
+                        <div class="color-sample">
+                            <div class="color-box mb-2" style="background-color: #ff9900;"></div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">#ff9900</span>
+                                <span class="wcag-badge wcag-fail">Falha</span>
+                            </div>
+                        </div>
+                        <div class="color-sample">
+                            <div class="color-box mb-2" style="background-color: #66cc33;"></div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">#66cc33</span>
+                                <span class="wcag-badge wcag-fail">Falha</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="color-sample">
-                <div class="color-box mb-2" style="background-color: #66cc33;"></div>
-                <div class="flex justify-between items-center">
-                  <span class="text-sm font-medium">#66cc33</span>
-                  <span class="wcag-badge wcag-fail">Falha</span>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-xl font-semibold mb-4">
-                Sobre Deficiências Visuais de Cores
-            </h2>
+        <div class="bg-white rounded-lg shadow-lg p-6 fixed-height-desktop">
+            <h2 class="text-xl font-semibold mb-4">Sobre Deficiências Visuais de Cores</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="font-medium text-gray-800 mb-2">
-                        Tipos de Daltonismo
-                    </h3>
+                    <h3 class="font-medium text-gray-800 mb-2">Tipos de Daltonismo</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
-                        <li>
-                            <strong>Protanopia:</strong>
-                            Dificuldade em perceber o vermelho, que pode parecer
-                            mais escuroou marrom-esverdeado. Tons de vermelho e
-                            verde podem ser facilmente confundidos.
-                        </li>
-                        <li>
-                            <strong>Deuteranopia:</strong>
-                            Dificuldade em distinguir entre verdes, vermelhos
-                            e marrons. Os verdes podem parecer mais acinzentados
-                            ou amarelados.
-                        </li>
-                        <li>
-                            <strong>Tritanopia:</strong>
-                            Dificuldade em distinguir entre azul e verde, e entre
-                            amarelo e rosa. Azuis podem parecer mais esverdeados,
-                            e amarelos podem parecer claramente rosados ou cinzentos.
-                        </li>
-                        <li>
-                            <strong>Acromatopsia:</strong>
-                            Ausência total de percepção de cores (visão em escala de cinza).
-                        </li>
+                        <li><strong>Protanopia:</strong> Dificuldade em perceber o vermelho, que pode parecer mais
+                            escuro ou marrom-esverdeado. Tons de vermelho e verde podem ser facilmente confundidos.</li>
+                        <li><strong>Deuteranopia:</strong> Dificuldade em distinguir entre verdes, vermelhos e marrons.
+                            Os verdes podem parecer mais acinzentados ou amarelados.</li>
+                        <li><strong>Tritanopia:</strong> Dificuldade em distinguir entre azul e verde, e entre amarelo e
+                            rosa. Azuis podem parecer mais esverdeados, e amarelos podem parecer claramente rosados ou
+                            cinzentos.</li>
+                        <li><strong>Acromatopsia:</strong> Ausência total de percepção de cores (visão em escala de
+                            cinza).</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-medium text-gray-800 mb-2">
-                        Diretrizes WCAG
-                    </h3>
-                    <p class="text-sm text-gray-600 mb-2">
-                        As Diretrizes de Acessibilidade para Conteúdo Web (WCAG)
-                        estabelecem padrões para contraste de cores:
-                    </p>
+                    <h3 class="font-medium text-gray-800 mb-2">Diretrizes WCAG</h3>
+                    <p class="text-sm text-gray-600 mb-2">As Diretrizes de Acessibilidade para Conteúdo Web (WCAG)
+                        estabelecem padrões para contraste de cores:</p>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
-                        <li>
-                            <strong>Nível AA:</strong>
-                            Requer uma taxa de contraste de pelo menos 4.5:1 para
-                            texto normal e 3:1 para texto grande.
-                        </li>
-                        <li>
-                            <strong>Nível AAA:</strong>
-                            Requer uma taxa de contraste de pelo menos 7:1 para
-                            texto normal e 4.5:1 para texto grande.
-                        </li>
+                        <li><strong>Nível AA:</strong> Requer uma taxa de contraste de pelo menos 4.5:1 para texto
+                            normal e 3:1 para texto grande.</li>
+                        <li><strong>Nível AAA:</strong> Requer uma taxa de contraste de pelo menos 7:1 para texto normal
+                            e 4.5:1 para texto grande.</li>
                     </ul>
                 </div>
             </div>
