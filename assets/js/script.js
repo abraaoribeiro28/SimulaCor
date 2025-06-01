@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contrastResults = document.getElementById('contrastResults');
     const suggestions = document.getElementById('suggestions');
 
-    const defaultColors = ['#3366CC', '#FF9900', '#66CC33'];
+    const defaultColors = ['#2E55A3', '#FF9900', '#66CC33'];
 
     function updateColorFromText(input, colorId) {
         const colorInput = document.getElementById(colorId);
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const statusClass = status === 'pass' ? 'text-green-600'
                 : status === 'warning' ? 'text-yellow-600'
-                    : 'text-red-600';
+                    : 'text-red-700';
 
             return `
               <div class="flex items-center justify-between">
