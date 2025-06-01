@@ -1,5 +1,6 @@
-<
-<html lang="pt-BR"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SimulaCor - Acessibilidade de Cores</title>
@@ -17,6 +18,60 @@
             </p>
         </header>
 
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6 mb-6">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-xl font-semibold mb-4">Cores para Testar</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div>
+                            <label for="color1" class="block text-sm font-medium text-gray-700 mb-1">Cor 1</label>
+                            <div class="flex">
+                                <input type="color" id="color1" value="#3366CC"
+                                    class="h-10 w-10 rounded-l-md border border-r-0 border-gray-300">
+                                <input type="text" id="color1Text" value="#3366CC" class="color-input rounded-l-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="color2" class="block text-sm font-medium text-gray-700 mb-1">Cor 2</label>
+                            <div class="flex">
+                                <input type="color" id="color2" value="#FF9900"
+                                    class="h-10 w-10 rounded-l-md border border-r-0 border-gray-300">
+                                <input type="text" id="color2Text" value="#FF9900" class="color-input rounded-l-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="color3" class="block text-sm font-medium text-gray-700 mb-1">Cor 3</label>
+                            <div class="flex">
+                                <input type="color" id="color3" value="#66CC33"
+                                    class="h-10 w-10 rounded-l-md border border-r-0 border-gray-300">
+                                <input type="text" id="color3Text" value="#66CC33" class="color-input rounded-l-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <button id="simulateBtn" class="btn btn-primary">Simular Cores</button>
+                        <button id="resetBtn" class="btn btn-secondary">Redefinir</button>
+                        <button id="suggestBtn" class="btn btn-secondary">Sugerir Alternativas</button>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nível de Conformidade WCAG</label>
+                        <div class="flex gap-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="wcagLevel" value="AA" checked class="h-4 w-4 text-blue-600">
+                                <span class="ml-2 text-gray-700">AA (4.5:1)</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="wcagLevel" value="AAA" class="h-4 w-4 text-blue-600">
+                                <span class="ml-2 text-gray-700">AAA (7:1)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="bg-white rounded-lg shadow-lg p-6">
             <h2 class="text-xl font-semibold mb-4">
                 Sobre Deficiências Visuais de Cores
@@ -28,19 +83,19 @@
                     </h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
                         <li>
-                            <strong>Protanopia:</strong> 
+                            <strong>Protanopia:</strong>
                             Dificuldade em perceber o vermelho, que pode parecer
                             mais escuroou marrom-esverdeado. Tons de vermelho e
                             verde podem ser facilmente confundidos.
                         </li>
                         <li>
-                            <strong>Deuteranopia:</strong> 
+                            <strong>Deuteranopia:</strong>
                             Dificuldade em distinguir entre verdes, vermelhos
                             e marrons. Os verdes podem parecer mais acinzentados
                             ou amarelados.
                         </li>
                         <li>
-                            <strong>Tritanopia:</strong> 
+                            <strong>Tritanopia:</strong>
                             Dificuldade em distinguir entre azul e verde, e entre
                             amarelo e rosa. Azuis podem parecer mais esverdeados,
                             e amarelos podem parecer claramente rosados ou cinzentos.
