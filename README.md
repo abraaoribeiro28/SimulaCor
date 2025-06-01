@@ -36,4 +36,4 @@ Ajudar designers, desenvolvedores e equipes de UX a criarem interfaces mais incl
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/simulador-acessibilidade-cores.git
+   git clone https://github.com/abraaoribeiro28/SimulaCor.git
